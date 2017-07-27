@@ -220,7 +220,3 @@ exports.getContentFields = function(lang, id, fields, response) {
 //     }
 //   });
 // }
-
-function get_fields(fields,function(callback){
-  
-});
