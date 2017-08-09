@@ -4,10 +4,6 @@ const express = require('express');
 const router = express.Router();
 
 const demo_select = require('./../models/demo_select');
-// const demo_insert = require('./../models/demo_insert');
-// const demo_update = require('./../models/demo_update');
-// const demo_delete = require('./../models/demo_delete');
-
 const data = require('../../data.json');
 
 router.get('/getContent', function(req, res) {
@@ -116,7 +112,6 @@ router.get('/getContentFields', function(req, res, next) {
       });
     } else {
       if (result) {
-        // console.log(result);
         return res.status(200).send({
           code: 200,
           data: result

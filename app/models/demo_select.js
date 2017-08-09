@@ -10,7 +10,7 @@ var lang, id;
 
 exports.getContent = function(fields, response) {
   const query = "SELECT "+default_fields+" FROM contents WHERE lang = ? AND id = ?";
-  client.execute(query, [lang='th', id='GvpOmEe13K7'], {prepare: true}, function(err, result) {
+  client.execute(query, [lang='th', id='R5g9VDjq9rQ'], {prepare: true}, function(err, result) {
     if (err){
       return response(err);
 
@@ -51,7 +51,7 @@ exports.getContent = function(fields, response) {
   			});
 
       }else{
-        const query = "SELECT "+default_fields+" FROM contents2 WHERE lang = ? AND id = ?";
+        const query = "SELECT * FROM contents2 WHERE lang = ? AND id = ?";
 
   			client.execute(query, [lang, id], { prepare : true }, function(err, result) {
   				if (err) return response(err);
