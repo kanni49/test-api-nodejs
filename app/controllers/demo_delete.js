@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const demo_delete = require('./../models/demo_delete');
+const demo_delete2 = require('./../models/demo_delete_asyncawait');
 
 router.delete('/deleteData', function(req, res) {
   if (!req.query.lang) {
@@ -16,7 +17,7 @@ router.delete('/deleteData', function(req, res) {
     });
   }
 
-  demo_delete.delContent(req.query.lang, req.query.id, function(err, result) {
+  demo_delete2.delContent(req.query.lang, req.query.id, function(err, result) {
     if (err) {
       return res.status(err.code).send({
         code: err.code,

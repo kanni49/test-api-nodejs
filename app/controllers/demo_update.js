@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const demo_update = require('./../models/demo_update');
+const demo_update2 = require('./../models/demo_update_asyncawait');
 
 const data = require('../../data.json');
 
@@ -13,7 +14,7 @@ router.post('/updateData', function(req, res) {
       "detail": "detail test updateData"
     };
 
-    demo_update.update(test_json, function(err, result) {
+    demo_update2.update(test_json, function(err, result) {
       if (err) console.log(err);
       return res.send({
         "code": "200",
@@ -27,7 +28,7 @@ router.post('/updateData', function(req, res) {
 
 router.post('/updateJsonData', function(req, res) {
 
-    demo_update.update(data, function(err, result) {
+    demo_update2.update(data, function(err, result) {
       if (err) console.log(err);
       return res.send({
         "code": "200",

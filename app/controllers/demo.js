@@ -4,11 +4,13 @@ const express = require('express');
 const router = express.Router();
 
 const demo_select = require('./../models/demo_select');
+const demo_select2 = require('./../models/demo_select_asyncawait');
 const data = require('../../data.json');
 
+
 router.get('/getContent', function(req, res) {
-  console.log('0');
-  demo_select.getContent(req.query.fields,function(err, result) {
+
+  demo_select2.getContent(req.query.fields,function(err, result) {
     if(err){
       console.log(err);
     }else{
@@ -22,13 +24,13 @@ router.get('/getContent', function(req, res) {
 
 router.get('/getContentDetails', function(req, res) {
   console.log('1');
-  demo_select.getContentDetails(function(err, result) {
+  demo_select2.getContentDetails(req.query.fields,function(err, result) {
     if(err){
       console.log(err);
     }else{
       return res.status(200).send({
         code: 200,
-        data: result.first()
+        data: result
       });
     }
   });
@@ -41,7 +43,7 @@ router.get('/getIdParams/:id', function(req, res) {
   }
   req.query.lang = req.query.lang.toLowerCase();
 
-  demo_select.getContentById(req.query.lang, req.params.id, function(err,
+  demo_select2.getContentById(req.query.lang, req.params.id, function(err,
     result) {
     if (err) console.log('err' + err);
     else {
@@ -67,7 +69,7 @@ router.get('/getContentById2', function(req, res) {
     });
   }
 
-  demo_select.getContentById2(req.query.lang, req.query.id, function(err, result) {
+  demo_select2.getContentById2(req.query.lang, req.query.id, function(err, result) {
     if (err) {
       return res.status(404).send({
         code: 404,
@@ -104,7 +106,7 @@ router.get('/getContentFields', function(req, res, next) {
     });
   }
 
-  demo_select.getContentFields(req.query.lang, req.query.id, req.query.fields, function(err, result) {
+  demo_select2.getContentFields(req.query.lang, req.query.id, req.query.fields, function(err, result) {
     if (err) {
       return res.status(404).send({
         code: 404,
