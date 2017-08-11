@@ -17,11 +17,21 @@ router.delete('/deleteData', async function(req, res) {
     });
   }
 
-  await demo_delete2.delContent(req.query.lang, req.query.id);
-  return res.status(200).send({
-    code: 200,
-    message: 'ID:'+req.query.id+' has been successfully deleted.'
-  });
+  var result;
+  try {
+    result = await demo_delete2.delContent(req.query.lang, req.query.id);
+    return res.status(200).send({
+      code: 200,
+      message: result
+    });
+
+  } catch (e) {
+    return res.status(400).send({
+      code: 400,
+      message: e
+    });
+  }
+
 });
 
 module.exports = router;

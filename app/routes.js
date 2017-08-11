@@ -9,4 +9,5 @@ module.exports = function(app) {
   app.use('/v1/contenttypepublish', require('./controllers/contenttype_publish'));
   app.use('/', require('./controllers/callbackex'));
   app.use('/asyncawait', require('./controllers/asyncawaitfunc'));
+  app.use('/test', require('./controllers/test'));
 };
