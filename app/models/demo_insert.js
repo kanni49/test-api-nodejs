@@ -22,7 +22,7 @@ exports.getContent = function(lang, id, response) {
 }
 
 exports.addContent = function(req, response) {
-  const query = "INSERT INTO contents2 JSON'" + JSON.stringify(req).replace(
+  const query = "INSERT INTO contents3 JSON'" + JSON.stringify(req).replace(
     /'/g, "''") + "' ";
 
   client.execute(query, {prepare: true}, function(err,result) {

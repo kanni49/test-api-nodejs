@@ -98,10 +98,13 @@ router.get('/addContent', function(req, res) {
         message: err.message
       });
     } else {
+      console.log(result);
+
       if (result.rowLength > 0) {
+
         const json_data = Object.assign({}, result.first(), req.body);
 
-        demo_insert.addContent(json_data, function(err, result) {
+        demo_insert2.addContent(json_data, function(err, result) {
           if (err){
             return res.status(400).send({
               code: 400,
