@@ -1,10 +1,10 @@
 const cassandra = require('cassandra-driver');
 
 const client = new cassandra.Client({
-  contactPoints: ['172.24.64.151'],
-  keyspace: 'true_cms',
-  authProvider: new cassandra.auth.PlainTextAuthProvider('dmp_cms_dev_rw',
-    'udBaFL2Vdgv5BW7Ydev')
+  contactPoints: ['xxx.xx.xx.xxx'], // IP cassandra client
+  keyspace: 'keyspace_name', // keyspace name
+  authProvider: new cassandra.auth.PlainTextAuthProvider('username_auth',
+    'password_auth') // user and password for authentication
 });
 
 client.connect(function(err) {
